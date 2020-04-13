@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="hkucs.freeden.MainActivity">
+    <item
+        android:id="@+id/deletion_mode"
+        android:orderInCategory="300"
+        android:title="deletion_mode"
+        android:icon="@drawable/ic_delete_black_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="100"
+        android:title="F5"
+        app:showAsAction="ifRoom" />
+</menu>

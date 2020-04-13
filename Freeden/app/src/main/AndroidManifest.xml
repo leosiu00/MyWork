@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hkucs.freeden">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/freeden_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"> <!-- android:theme="@style/AppTheme"> -->
+        <!-- disable default application theme -->
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/CustomTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Preview"
+            android:theme="@style/CustomTheme.PopUpPreview" />
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_history"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".WatchLaterActivity"
+            android:label="@string/title_activity_watch_later"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".FavouriteActivity"
+            android:label="@string/title_activity_favourite"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".BlockedUserActivity"
+            android:label="@string/title_activity_blocked_user"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:theme="@style/CustomTheme"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:maxWidth="280dp"
+            android:text="Title"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/vote_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="0"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/title_text" />
+
+        <TextView
+            android:id="@+id/time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="now"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/vote_count_text"
+            app:layout_constraintTop_toBottomOf="@+id/vote_count_text" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/title_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="title_text,time_text"
+            app:layout_constraintBottom_toTopOf="@+id/time_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/category_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:text="吹水台"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_text"
+            app:layout_constraintTop_toTopOf="@+id/title_barrier" />
+
+        <ImageView
+            android:id="@+id/person_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="user"
+            app:layout_constraintBottom_toBottomOf="@+id/category_name_text"
+            app:layout_constraintDimensionRatio="v,1:1"
+            app:layout_constraintStart_toEndOf="@+id/category_name_text"
+            app:layout_constraintTop_toTopOf="@+id/category_name_text"
+            app:srcCompat="@drawable/ic_person_black_24dp" />
+
+        <TextView
+            android:id="@+id/user_nickname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="username"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/category_name_text"
+            app:layout_constraintStart_toEndOf="@+id/person_image" />
+
+        <TextView
+            android:id="@+id/reply_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/category_name_text"
+            app:layout_constraintEnd_toEndOf="@+id/vote_count_text" />
+
+        <ImageView
+            android:id="@+id/comment_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="48dp"
+            android:contentDescription="reply"
+            app:layout_constraintBottom_toBottomOf="@+id/reply_count_text"
+            app:layout_constraintDimensionRatio="v,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/reply_count_text"
+            app:srcCompat="@drawable/ic_comment_black_24dp" />
+
+        <ImageView
+            android:id="@+id/history_or_watch_later_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="6dp"
+            android:contentDescription="history_or_watch_later"
+            app:layout_constraintBottom_toBottomOf="@+id/comment_image"
+            app:layout_constraintDimensionRatio="v,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/comment_image"
+            app:layout_constraintTop_toTopOf="@+id/comment_image" />
+
+        <ImageView
+            android:id="@+id/is_hot_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="110dp"
+            android:contentDescription="is_hot"
+            app:layout_constraintBottom_toBottomOf="@+id/comment_image"
+            app:layout_constraintDimensionRatio="v,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/comment_image" />
+
+        <ImageView
+            android:id="@+id/is_bookmarked_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="is_hot"
+            app:layout_constraintBottom_toBottomOf="@+id/comment_image"
+            app:layout_constraintDimensionRatio="v,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/is_hot_image"
+            app:layout_constraintTop_toTopOf="@+id/comment_image" />
+
+        <!--<ImageView-->
+            <!--android:id="@+id/has_history_image"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginEnd="90dp"-->
+            <!--android:contentDescription="has_history"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/comment_image"-->
+            <!--app:layout_constraintDimensionRatio="v,1:1"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/comment_image" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/is_hot_image"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:contentDescription="is_hot"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/comment_image"-->
+            <!--app:layout_constraintDimensionRatio="v,1:1"-->
+            <!--app:layout_constraintEnd_toStartOf="@+id/has_history_image"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/comment_image" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/is_bookmarked_image"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:contentDescription="is_hot"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/comment_image"-->
+            <!--app:layout_constraintDimensionRatio="v,1:1"-->
+            <!--app:layout_constraintEnd_toStartOf="@+id/is_hot_image"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/comment_image" />-->
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

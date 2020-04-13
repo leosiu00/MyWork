@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="hkucs.freeden.MainActivity">
+    <item
+        android:id="@+id/change_channel"
+        android:orderInCategory="300"
+        android:title="change_channel"
+        android:icon="@drawable/ic_remote"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/incognito_mode"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_incognito"
+        android:title="incognito_mode"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="100"
+        android:title="F5"
+        app:showAsAction="ifRoom" />
+</menu>

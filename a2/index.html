@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatterBox</title>
+    <link rel="stylesheet" href="/stylesheets/mystyles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/javascripts/myscripts.js"></script>
+  </head>
+  <body ng-app="chatterbox" ng-controller="ChatterBoxController" ng-init="pageLoad()">
+
+      <div id="login_page" ng-show="notLogin">
+        <h1>ChatterBox</h1>
+        <h3 ng-show="showLoginErrorMsg">Login failure</h3>
+        <h3>User Name</h3>
+        <input type="text" ng-model="userInput.name"></input>
+        <br>
+        <h3 >Password</h3>
+        <input type="password" ng-model="userInput.password"></input>
+        <br>
+        <button class="myButton" ng-click="handleLoginLogout()">{{logButtonString}}</button>
+      </div>
+	  
+      <div id="content" ng-hide="notLogin">
+		  
+        <div id="header">          
+          <div id="iconarea">
+		 	    <h1>ChatterBox</h1> 
+            	<img id="usericon" src="{{CurrentuserIcon}}" ng-click="goToContactInfo()"></img>
+         	  	<h3 id="username" ng-click="goToContactInfo()">{{currentUser.name}}</h3>				
+            	<button ng-click="handleLoginLogout()">{{logButtonString}}</button>
+		      </div>
+        </div>
+		
+        <div id="nameList">
+		    <h2>Friends:</h2>
+          	<ul>
+            	<li ng-repeat="friend in friends">
+              	  <h3 ng-click="showUserMessages(friend)" class="{{(friend._id === selectedUser._id)?'selected':''}}" id="{{friend._id}}">{{friend.name}} {{friend.unreadtext}}</h3>
+            	</li>      
+	            <li repeat-finish>
+	            </li>      	
+          	</ul>
+        </div>
+		
+        <div id="selectfriendicon" ng-show="isOtherUser">
+          <img  src="{{SelecteduserIcon}}"></img>
+          <h2>{{selectedUser.name}} ({{selectedUser.status}})</h2>
+        </div>
+		
+        <div id='background'>
+          <div id="chatDisplay">
+            <div id="smallMessages" ng-hide="showContactInfo">
+              <div ng-repeat="message in userMessages" repeat-finish ng-dblclick="message.senderName===currentUser.name && deleteMessage(message)" class="{{(message.senderName===currentUser.name)?'messageBlockright':'messageBlockleft'}}">
+                <br>
+                <h3 ng-show=message.show>{{message.date}} </h3>
+                <img src="{{(message.senderName===currentUser.name)?'':SelecteduserIcon}}"></img>
+                  <h2>{{message.senderName}}: {{message.message}} </h2>
+                  <h4> {{message.time}}</h4>
+                <br>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+			
+            <div id='ContactInfomat' ng-show="showContactInfo">
+  		 	  <img id="usericon" src="{{CurrentuserIcon}}"></img>
+           	  <h3 id="username">{{currentUser.name}}</h3>
+              <h2>Mobile number:</h2>
+              <input class="ContactInfo" type='text' placeholder='{{currentUser.mobileNumber}}' ng-model="ContactInput.mobileNumber" >
+              <h2>Home number:</h2>
+              <input class="ContactInfo" type='text' placeholder='{{currentUser.homeNumber}}' ng-model="ContactInput.homeNumber" >
+              <h2>Mailing address:</h2>
+              <input class="ContactInfo" type='text' placeholder='{{currentUser.address}}' ng-model="ContactInput.address" >
+            </div>
+            <br>
+            <button id="savebutton" class="myButton" ng-click="saveContactinfo()" ng-show="showContactInfo">Save</button>
+          </div>
+        </div>
+
+
+        <div id="inputbox" ng-show="isOtherUser">
+          <input id="messageinput" type='text' placeholder='Type a message here' ng-model="MessageInput" ng-enter="Postmessage()" onclick="this.placeholder=''">
+        </div>
+        
+      </div>
+
+  </body>
+</html>
