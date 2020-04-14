@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="dist/summernote-lite.css">
+  <title>summernote-lite</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+  
+  <script type="text/javascript" src="dist/summernote-lite.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.summernote').summernote({
+        height: 300,
+        tabsize: 2
+      });
+    });
+	var edit = function() {
+  $('.click2edit').summernote({focus: true});
+};
+
+var save = function() {
+  var markup = $('.click2edit').summernote('code');
+  $('.click2edit').summernote('destroy');
+};
+  </script>
+</head>
+<body>
+  <h4>Summernote standalone</h4>
+ <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
+<button id="save" class="btn btn-primary" onclick="save()" type="button">Save 2</button>
+<div class="click2edit">click2edit</div>
+</body>
+</html>
